@@ -1,4 +1,7 @@
 package api.REQRES;
+import api.models.RequestModelForCreate;
+import api.models.RequestModelForGetListUsers;
+import api.models.RequestModelForUpdate;
 import mainPackage.BaseSetup;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.Method;
@@ -21,16 +24,44 @@ public class ReqresInRestService extends BaseSetup{
         return reqresResponse;
     }
 
-    public class RequestModelForGetListUsers {
-        public String getPage() {
-            return page;
-        }
+    public Response getSingleUser () {
+        requestSpecBuilder.setBaseUri(workingHost)
+                .setBasePath(REQRES_IN_REST_SERVICE_PATH + "/2")
+                .setContentType("application/json");
+        Response reqresResponse = sendRequestAndGetResponseNew(Method.GET);
+        return reqresResponse;
+    }
 
-        public void setPage(String page) {
-            this.page = page;
-        }
+    public Response getSingleUserNotFound () {
+        requestSpecBuilder.setBaseUri(workingHost)
+                .setBasePath(REQRES_IN_REST_SERVICE_PATH + "/23")
+                .setContentType("application/json");
+        Response reqresResponse = sendRequestAndGetResponseNew(Method.GET);
+        return reqresResponse;
+    }
 
-        private String page;
+    public Response postCreate (RequestModelForCreate requestModelForCreate) {
+        HashMap bodyParams = new HashMap();
+        bodyParams.put("name", requestModelForCreate.getName());
+        bodyParams.put("job", requestModelForCreate.getJob());
+        requestSpecBuilder.setBaseUri(workingHost)
+                .setBasePath(REQRES_IN_REST_SERVICE_PATH)
+                .setContentType("application/json")
+                .setBody(bodyParams);
+        Response reqresResponse = sendRequestAndGetResponseNew(Method.POST);
+        return reqresResponse;
+    }
+
+    public Response putUpdate (RequestModelForUpdate requestModelForUpdate) {
+        HashMap bodyParams = new HashMap();
+        bodyParams.put("name", requestModelForUpdate.getName());
+        bodyParams.put("job", requestModelForUpdate.getJob());
+        requestSpecBuilder.setBaseUri(workingHost)
+                .setBasePath(REQRES_IN_REST_SERVICE_PATH + "/2")
+                .setContentType("application/json")
+                .setBody(bodyParams);
+        Response reqresResponse = sendRequestAndGetResponseNew(Method.PUT);
+        return reqresResponse;
     }
 
 }
