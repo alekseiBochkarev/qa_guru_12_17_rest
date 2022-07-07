@@ -1,4 +1,4 @@
-package homeTests;
+package home_tests;
 
 import api.ApiManager;
 import api.models.*;
