@@ -1,15 +1,14 @@
-package api.REQRES;
+package api.reqres;
 import api.models.RequestModelForCreate;
 import api.models.RequestModelForGetListUsers;
 import api.models.RequestModelForUpdate;
-import mainPackage.BaseSetup;
-import io.restassured.builder.RequestSpecBuilder;
+import base.BaseSetup;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
 
-import static mainPackage.BaseSetup.ApiPath.REQRES_IN_REST_SERVICE_PATH;
+import static base.BaseSetup.ApiPath.REQRES_IN_REST_SERVICE_PATH;
 
 public class ReqresInRestService extends BaseSetup{
 

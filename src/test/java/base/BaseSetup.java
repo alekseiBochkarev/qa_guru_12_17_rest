@@ -1,4 +1,4 @@
-package mainPackage;
+package base;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.Method;

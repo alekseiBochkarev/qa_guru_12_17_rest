@@ -1,6 +1,6 @@
 package api;
 
-import api.REQRES.ReqresInRestService;
+import api.reqres.ReqresInRestService;
 
 public class ApiManager {
 

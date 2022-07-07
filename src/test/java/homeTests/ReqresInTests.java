@@ -1,7 +1,6 @@
 package homeTests;
 
 import api.ApiManager;
-import api.REQRES.ReqresInRestService;
 import api.models.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
